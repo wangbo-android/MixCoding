@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <script>
+
+        function getSession() {
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST','/session',true);
+            xhr.onload = function (e) {
+
+                if(this.status == 200){
+
+                    document.getElementById('result').innerHTML = this.response;
+                }
+            };
+
+            xhr.send();
+        }
+
+        function clearInfo() {
+
+            document.getElementById('result').innerHTML = '';
+        }
+
+    </script>
+    <button onclick="getSession();">按钮</button><button onclick="clearInfo();">清除</button><br/>
+    <output id="result"></output>
+</body>
+</html>

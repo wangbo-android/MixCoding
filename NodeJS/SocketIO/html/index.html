@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+
+        var socket = io.connect();
+        socket.on('message',function (data) {
+
+            socket.send(data);
+            document.getElementById('info').innerHTML = data;
+        });
+        
+        socket.on('disconnect',function () {
+
+            document.getElementById('info').innerHTML = '与服务器断开';
+        });
+    </script>
+</head>
+<body>
+    <div id="info"></div>
+</body>
+</html>

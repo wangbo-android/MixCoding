@@ -1,0 +1,8 @@
+/**
+ * Created by Administrator on 2017/8/4.
+ */
+
+exports.sayHello = function (words) {
+
+    console.log(words);
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+
+    <script>
+
+        function ajaxText() {
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET','/ajax',true);
+            xhr.onreadystatechange = function () {
+
+                if(xhr.readyState == 4){
+
+                    if(xhr.status == 200){
+
+                        document.getElementById('doc').innerHTML = this.responseText;
+                        document.getElementById('result').value = this.responseText;
+                    }
+                }
+            };
+
+            xhr.send(null);
+        }
+    </script>
+
+    <button onclick="ajaxText();">提交</button>
+    <div id="doc"></div>
+    <div ng-app="">
+        <p>名字 : <input  id="result" type="text" ng-model="name"></p>
+        <h1>Hello {{name}}</h1>
+    </div>
+</body>
+</html>

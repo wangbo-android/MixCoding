@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>上传文件</title>
+    <script>
+
+        function upload() {
+            //alert('yes');
+            var formData = new FormData();
+            var files = document.getElementById('file').files;
+            var file = files[0];
+            formData.append('file',file);
+            var xrh = new XMLHttpRequest();
+            xrh.open('POST','/upload',true);
+            xrh.onload = function (e) {
+
+                if(this.status == 200){
+
+                    document.getElementById('result').innerHTML = this.response;
+                }
+            };
+
+            xrh.send(formData);
+        }
+    </script>
+</head>
+<body>
+    <form enctype="multipart/form-data" id="form1">
+        <input type="file" id="file" name="file"/><br/>
+        <input type="button" value="上传" onclick="upload();"/>
+    </form>
+    <output id="result"></output>
+</body>
+</html>

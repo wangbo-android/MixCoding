@@ -1,0 +1,15 @@
+{
+  "name": "wangbo",
+  "version": "1.0.1",
+  "description": "This is customed package of NPM",
+  "main": "NpmPackage.js",
+  "scripts": {
+    "test": "echo \\\"Error : no specified\\\" && exit 1"
+  },
+  "keywords": [
+    "Say",
+    "Hello"
+  ],
+  "author": "BoWang",
+  "license": "MIT"
+}

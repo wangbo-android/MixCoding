@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+
+        var socket = io.connect();
+        socket.on('news',function (msg,fn) {
+
+            document.getElementById('msg').innerHTML = msg.hello;
+            fn('收到服务器发来的时间');
+        });
+
+        socket.emit('other',{response : '你好服务器端'},function (msg) {
+
+            document.getElementById('msg').innerHTML = msg;
+        });
+    </script>
+</head>
+<body>
+    <div id="msg"></div>
+</body>
+</html>

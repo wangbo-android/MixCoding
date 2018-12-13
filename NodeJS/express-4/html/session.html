@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <script>
+
+        function sessionGet() {
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST','/session',true);
+            xhr.onload = function (e) {
+
+                if(this.status == 200){
+
+                    document.getElementById('result').innerHTML = this.response;
+                }
+            };
+
+            xhr.send();
+        }
+    </script>
+    <button onclick="sessionGet();">Session</button><br/>
+    <output id="result"></output>
+</body>
+</html>

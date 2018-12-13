@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Post向服务器发送数据</title>
+
+    <script>
+
+        function submitData() {
+
+            var obj = {
+
+                "firstname" : document.getElementById('firstname').value,
+                "secondname" : document.getElementById('secondname').value
+            };
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('put','/put',true);
+            xhr.onload = function (e) {
+
+                if(this.status == 200){
+
+                    document.getElementById('result').innerHTML = this.response;
+                }
+            };
+
+            xhr.send(JSON.stringify(obj));
+        }
+    </script>
+</head>
+<body>
+    <form id="form1">
+
+        姓<input type="text" id="firstname" name="firstname" value="张张张" /><br/>
+        名<input type="text" id="secondname" name="secondname" value="博啵啵啵啵啵"/><br/>
+        <input type="button" value="提交" onclick="submitData();">
+    </form>
+    <output id="result"></output>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        function cookieSubmit() {
+
+            document.cookie = 'firstname=wangbo';
+            document.cookie = 'secondname=lisi';
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST','/cookie',true);
+            xhr.onload = function (e) {
+
+                if(this.status == 200){
+
+                    document.getElementById('result').innerHTML = this.response;
+                }
+            };
+
+            xhr.send();
+        }
+    </script>
+</head>
+<body>
+
+    <form method="post" action="/cookie">
+        <input type="button" value="提交" onclick="cookieSubmit();">
+    </form>
+    <output id="result"></output>
+</body>
+</html>

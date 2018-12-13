@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        function asynRequest() {
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET','/1/wangbo',true);
+            xhr.onload = function (e) {
+
+                if(this.status == 200){
+
+                    document.getElementById('result').innerHTML = this.response;
+                }
+            }
+
+            xhr.send();
+        }
+    </script>
+</head>
+<body>
+
+    <button value="提交" onclick="asynRequest();">提交</button><br>
+    <output id="result"></output>
+
+</body>
+</html>
